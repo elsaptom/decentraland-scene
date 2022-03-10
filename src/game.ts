@@ -49,3 +49,25 @@ cube.addComponent(
     spawnCube(Math.random() * 8 + 1, Math.random() * 8, Math.random() * 8 + 1)
   })
 )
+
+const _scene = new Entity('_scene')
+engine.addEntity(_scene)
+const transform = new Transform({
+  position: new Vector3(0, 0, 0),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1, 1, 1)
+})
+
+const projector = new Entity('projector')
+const gltfShape14 = new GLTFShape('models/projector/projector.gltf')
+projector.addComponentOrReplace(gltfShape14)
+engine.addEntity(projector)
+projector.setParent(_scene)
+const transform34 = new Transform(
+  {
+    position: new Vector3(16, 3, 16),
+    scale: new Vector3(0.01, 0.01, 0.01),
+    rotation: new Quaternion(0, 45, -3, 1),
+  }
+)
+projector.addComponentOrReplace(transform34)
