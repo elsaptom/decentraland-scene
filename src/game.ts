@@ -15,7 +15,7 @@ const sceneMessageBus = new MessageBus()
 const entity = new Entity('entity')
 engine.addEntity(entity)
 entity.setParent(_scene)
-const gltfShape = new GLTFShape("models/FloorBaseWood_01/FloorBaseWood_01.glb")
+const gltfShape = new GLTFShape("models/floor-shape.glb")
 gltfShape.withCollisions = true
 gltfShape.isPointerBlocker = true
 gltfShape.visible = true
@@ -60,47 +60,6 @@ const transform5 = new Transform({
 })
 entity4.addComponentOrReplace(transform5)
 
-const outdoorTable = new Entity('outdoorTable')
-engine.addEntity(outdoorTable)
-outdoorTable.setParent(_scene)
-const transform9 = new Transform({
-  position: new Vector3(28.5, 0, 15.5),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1, 1, 1)
-})
-outdoorTable.addComponentOrReplace(transform9)
-const gltfShape5 = new GLTFShape("models/Table_01/Table_01.glb")
-gltfShape5.withCollisions = true
-gltfShape5.isPointerBlocker = true
-gltfShape5.visible = true
-outdoorTable.addComponentOrReplace(gltfShape5)
-
-// const armchairRed = new Entity('armchairRed')
-// engine.addEntity(armchairRed)
-// armchairRed.setParent(_scene)
-// const transform10 = new Transform({
-//   position: new Vector3(5.5, 0, 18),
-//   rotation: new Quaternion(-0.013521425426006317, 0.7716787457466125, 0.013521332293748856, 0.6357250213623047),
-//   scale: new Vector3(1, 1, 1)
-// })
-// armchairRed.addComponentOrReplace(transform10)
-// const gltfShape6 = new GLTFShape("dc2d6a5f-0dc7-4300-8015-46993a3c425d/RedArmchair.glb")
-// gltfShape6.withCollisions = true
-// gltfShape6.isPointerBlocker = true
-// gltfShape6.visible = true
-// armchairRed.addComponentOrReplace(gltfShape6)
-
-// const armchairRed2 = new Entity('armchairRed2')
-// engine.addEntity(armchairRed2)
-// armchairRed2.setParent(_scene)
-// const transform11 = new Transform({
-//   position: new Vector3(5.5, 0, 14.5),
-//   rotation: new Quaternion(-4.470348002882929e-8, -0.7071068286895752, 1.639127589214695e-7, -0.7071067690849304),
-//   scale: new Vector3(1, 1, 1)
-// })
-// armchairRed2.addComponentOrReplace(transform11)
-// armchairRed2.addComponentOrReplace(gltfShape6)
-
 const tableWithChairs = new Entity('tableWithChairs')
 engine.addEntity(tableWithChairs)
 tableWithChairs.setParent(_scene)
@@ -116,34 +75,11 @@ gltfShape7.isPointerBlocker = true
 gltfShape7.visible = true
 tableWithChairs.addComponentOrReplace(gltfShape7)
 
-const coffeeMachine = new Entity('coffeeMachine')
-engine.addEntity(coffeeMachine)
-coffeeMachine.setParent(_scene)
-const transform13 = new Transform({
-  position: new Vector3(28.5, 1, 15),
-  rotation: new Quaternion(1.982487177554031e-15, -1, 1.1920928244535389e-7, 2.9802322387695312e-8),
-  scale: new Vector3(1, 1, 1)
-})
-coffeeMachine.addComponentOrReplace(transform13)
-const gltfShape8 = new GLTFShape("models/Coffee_Machine.glb")
-gltfShape8.withCollisions = true
-gltfShape8.isPointerBlocker = true
-gltfShape8.visible = true
-coffeeMachine.addComponentOrReplace(gltfShape8)
-coffeeMachine.addComponentOrReplace(new AudioSource(new AudioClip("sounds/coffee-machine.mp3")))
-coffeeMachine.addComponentOrReplace(
-  new OnPointerDown((e) => {
-    coffeeMachine.getComponent(AudioSource).playing = true
-    sceneMessageBus.emit('play-coffee-sound', {})
-  }
-  )  
-)
-
 const table = new Entity('table')
 engine.addEntity(table)
 table.setParent(_scene)
 const transform15 = new Transform({
-  position: new Vector3(15.7, 0, 16),
+  position: new Vector3(9, 0.0, 16),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(1, 1, 1)
 })
@@ -154,78 +90,78 @@ gltfShape9.isPointerBlocker = true
 gltfShape9.visible = true
 table.addComponentOrReplace(gltfShape9)
 
-const chairHighBack = new Entity('chairHighBack')
-engine.addEntity(chairHighBack)
-chairHighBack.setParent(_scene)
-const transform16 = new Transform({
-  position: new Vector3(16, 0, 14.5),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1, 1, 1)
-})
-chairHighBack.addComponentOrReplace(transform16)
-const gltfShape10 = new GLTFShape("models/HighBackChair.glb")
-gltfShape10.withCollisions = true
-gltfShape10.isPointerBlocker = true
-gltfShape10.visible = true
-chairHighBack.addComponentOrReplace(gltfShape10)
+// const chairHighBack = new Entity('chairHighBack')
+// engine.addEntity(chairHighBack)
+// chairHighBack.setParent(_scene)
+// const transform16 = new Transform({
+//   position: new Vector3(16, 0, 14.5),
+//   rotation: new Quaternion(0, 0, 0, 1),
+//   scale: new Vector3(1, 1, 1)
+// })
+// chairHighBack.addComponentOrReplace(transform16)
+// const gltfShape10 = new GLTFShape("models/HighBackChair.glb")
+// gltfShape10.withCollisions = true
+// gltfShape10.isPointerBlocker = true
+// gltfShape10.visible = true
+// chairHighBack.addComponentOrReplace(gltfShape10)
 
-const chairHighBack2 = new Entity('chairHighBack2')
-engine.addEntity(chairHighBack2)
-chairHighBack2.setParent(_scene)
-chairHighBack2.addComponentOrReplace(gltfShape10)
-const transform17 = new Transform({
-  position: new Vector3(15.5, 0, 17.5),
-  rotation: new Quaternion(-5.837277581059123e-15, 1, -1.1920928244535389e-7, 0),
-  scale: new Vector3(1, 1, 1)
-})
-chairHighBack2.addComponentOrReplace(transform17)
+// const chairHighBack2 = new Entity('chairHighBack2')
+// engine.addEntity(chairHighBack2)
+// chairHighBack2.setParent(_scene)
+// chairHighBack2.addComponentOrReplace(gltfShape10)
+// const transform17 = new Transform({
+//   position: new Vector3(15.5, 0, 17.5),
+//   rotation: new Quaternion(-5.837277581059123e-15, 1, -1.1920928244535389e-7, 0),
+//   scale: new Vector3(1, 1, 1)
+// })
+// chairHighBack2.addComponentOrReplace(transform17)
 
-const chairHighBack3 = new Entity('chairHighBack3')
-engine.addEntity(chairHighBack3)
-chairHighBack3.setParent(_scene)
-chairHighBack3.addComponentOrReplace(gltfShape10)
-const transform18 = new Transform({
-  position: new Vector3(16, 0, 17),
-  rotation: new Quaternion(1.8338432714645053e-14, -0.7071068286895752, 8.429368847373553e-8, 0.7071068286895752),
-  scale: new Vector3(1, 1, 1)
-})
-chairHighBack3.addComponentOrReplace(transform18)
+// const chairHighBack3 = new Entity('chairHighBack3')
+// engine.addEntity(chairHighBack3)
+// chairHighBack3.setParent(_scene)
+// chairHighBack3.addComponentOrReplace(gltfShape10)
+// const transform18 = new Transform({
+//   position: new Vector3(16, 0, 17),
+//   rotation: new Quaternion(1.8338432714645053e-14, -0.7071068286895752, 8.429368847373553e-8, 0.7071068286895752),
+//   scale: new Vector3(1, 1, 1)
+// })
+// chairHighBack3.addComponentOrReplace(transform18)
 
-const chairHighBack4 = new Entity('chairHighBack4')
-engine.addEntity(chairHighBack4)
-chairHighBack4.setParent(_scene)
-chairHighBack4.addComponentOrReplace(gltfShape10)
-const transform19 = new Transform({
-  position: new Vector3(16, 0, 15.5),
-  rotation: new Quaternion(1.8338432714645053e-14, -0.7071068286895752, 8.429368847373553e-8, 0.7071068286895752),
-  scale: new Vector3(1, 1, 1)
-})
-chairHighBack4.addComponentOrReplace(transform19)
+// const chairHighBack4 = new Entity('chairHighBack4')
+// engine.addEntity(chairHighBack4)
+// chairHighBack4.setParent(_scene)
+// chairHighBack4.addComponentOrReplace(gltfShape10)
+// const transform19 = new Transform({
+//   position: new Vector3(16, 0, 15.5),
+//   rotation: new Quaternion(1.8338432714645053e-14, -0.7071068286895752, 8.429368847373553e-8, 0.7071068286895752),
+//   scale: new Vector3(1, 1, 1)
+// })
+// chairHighBack4.addComponentOrReplace(transform19)
 
-const chairHighBack5 = new Entity('chairHighBack5')
-engine.addEntity(chairHighBack5)
-chairHighBack5.setParent(_scene)
-chairHighBack5.addComponentOrReplace(gltfShape10)
-const transform20 = new Transform({
-  position: new Vector3(15, 0, 15),
-  rotation: new Quaternion(-1.1811653373861985e-14, 0.7071068286895752, -8.429371689544496e-8, 0.7071068286895752),
-  scale: new Vector3(1, 1, 1)
-})
-chairHighBack5.addComponentOrReplace(transform20)
+// const chairHighBack5 = new Entity('chairHighBack5')
+// engine.addEntity(chairHighBack5)
+// chairHighBack5.setParent(_scene)
+// chairHighBack5.addComponentOrReplace(gltfShape10)
+// const transform20 = new Transform({
+//   position: new Vector3(15, 0, 15),
+//   rotation: new Quaternion(-1.1811653373861985e-14, 0.7071068286895752, -8.429371689544496e-8, 0.7071068286895752),
+//   scale: new Vector3(1, 1, 1)
+// })
+// chairHighBack5.addComponentOrReplace(transform20)
 
-const chairHighBack6 = new Entity('chairHighBack6')
-engine.addEntity(chairHighBack6)
-chairHighBack6.setParent(_scene)
-chairHighBack6.addComponentOrReplace(gltfShape10)
-const transform21 = new Transform({
-  position: new Vector3(15, 0, 16.5),
-  rotation: new Quaternion(-1.1811653373861985e-14, 0.7071068286895752, -8.429371689544496e-8, 0.7071068286895752),
-  scale: new Vector3(1, 1, 1)
-})
-chairHighBack6.addComponentOrReplace(transform21)
+// const chairHighBack6 = new Entity('chairHighBack6')
+// engine.addEntity(chairHighBack6)
+// chairHighBack6.setParent(_scene)
+// chairHighBack6.addComponentOrReplace(gltfShape10)
+// const transform21 = new Transform({
+//   position: new Vector3(15, 0, 16.5),
+//   rotation: new Quaternion(-1.1811653373861985e-14, 0.7071068286895752, -8.429371689544496e-8, 0.7071068286895752),
+//   scale: new Vector3(1, 1, 1)
+// })
+// chairHighBack6.addComponentOrReplace(transform21)
 
 const transform22 = new Transform({
-  position: new Vector3(16, 1, 15),
+  position: new Vector3(9, 1, 15),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(0.6, 0.6, 0.6)
 })
@@ -248,10 +184,10 @@ concreteWall.setParent(_scene)
 const transform23 = new Transform({
   position: new Vector3(32, 0, 2),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(16, 1, 1)
+  scale: new Vector3(16, 1.5, 1)
 })
 concreteWall.addComponentOrReplace(transform23)
-const gltfShape12 = new GLTFShape("models/Concrete_Wall.glb")
+const gltfShape12 = new GLTFShape("models/PlainWhiteWall.glb")
 gltfShape12.withCollisions = true
 gltfShape12.isPointerBlocker = true
 gltfShape12.visible = true
@@ -264,7 +200,7 @@ concreteWall2.addComponentOrReplace(gltfShape12)
 const transform24 = new Transform({
   position: new Vector3(31.5, 0, 0),
   rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
-  scale: new Vector3(16, 1, 1)
+  scale: new Vector3(16, 1.5, 1)
 })
 concreteWall2.addComponentOrReplace(transform24)
 
@@ -275,7 +211,7 @@ concreteWall3.addComponentOrReplace(gltfShape12)
 const transform25 = new Transform({
   position: new Vector3(32, 0, 32),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(16, 1, 1)
+  scale: new Vector3(16, 1.5, 1)
 })
 concreteWall3.addComponentOrReplace(transform25)
 
@@ -286,7 +222,7 @@ concreteWall4.addComponentOrReplace(gltfShape12)
 const transform26 = new Transform({
   position: new Vector3(0.3, 0, 0),
   rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
-  scale: new Vector3(14.8, 1, 1)
+  scale: new Vector3(14.8, 1.5, 1)
 })
 concreteWall4.addComponentOrReplace(transform26)
 
@@ -318,7 +254,7 @@ engine.addEntity(concreteWall5)
 concreteWall5.setParent(_scene)
 concreteWall5.addComponentOrReplace(gltfShape12)
 const transform30 = new Transform({
-  position: new Vector3(32, 4, 0),
+  position: new Vector3(32, 5.8, 0),
   rotation: new Quaternion(0.7071068286895752, 2.4085271740892887e-15, -8.429369557916289e-8, 0.7071068286895752),
   scale: new Vector3(16, 8, 1)
 })
@@ -326,16 +262,16 @@ concreteWall5.addComponentOrReplace(transform30)
 
 
 // Books on the side table
-const transform31 = new Transform({
-  position: new Vector3(12, 0.6, 6.4),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.6, 0.6, 0.6)
-})
-const books2 = new Books(
-  gltfShape11,
-  transform31
-)
-books2.setParent(_scene)
+// const transform31 = new Transform({
+//   position: new Vector3(12, 0.6, 6.4),
+//   rotation: new Quaternion(0, 0, 0, 1),
+//   scale: new Vector3(0.6, 0.6, 0.6)
+// })
+// const books2 = new Books(
+//   gltfShape11,
+//   transform31
+// )
+// books2.setParent(_scene)
 
 // Sounds
 const pickUpSound = new Entity()
@@ -353,21 +289,21 @@ putDownSound.setParent(Attachable.AVATAR)
 
 // Grab book Controls
 Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (e) => {
-  let transform = books2.getComponent(Transform)
-  if (!books2.isGrabbed) {
-    books2.isGrabbed = true
+  let transform = books.getComponent(Transform)
+  if (!books.isGrabbed) {
+    books.isGrabbed = true
     pickUpSound.getComponent(AudioSource).playOnce()
-   // Calculates the books2's position relative to the camera
+   // Calculates the books's position relative to the camera
     transform.position = Vector3.Zero()
     transform.rotation = Quaternion.Zero()
     transform.position.z += 0.5
-    books2.setParent(Attachable.AVATAR)
+    books.setParent(Attachable.AVATAR)
   } else {
-    books2.isGrabbed = false
+    books.isGrabbed = false
     putDownSound.getComponent(AudioSource).playOnce()
 
-    // Calculate books2's ground position
-    books2.setParent(null) // Remove parent
+    // Calculate books's ground position
+    books.setParent(null) // Remove parent
     let forwardVector: Vector3 = Vector3.Forward()
       .scale(1.5)
       .rotate(Camera.instance.rotation)
@@ -379,60 +315,96 @@ Input.instance.subscribe('BUTTON_DOWN', ActionButton.PRIMARY, false, (e) => {
   }
 })
 
-const greenButton = new Entity('greenButton')
-engine.addEntity(greenButton)
-greenButton.setParent(_scene)
-const transform32 = new Transform({
-  position: new Vector3(16, 1, 16),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1, 1, 1)
-})
-greenButton.addComponentOrReplace(transform32)
-
-sceneMessageBus.on("opened-door", (info) => {
-  log('messagebus', info)
-  door3.addComponent(openDoorPosition)
-})
-
-sceneMessageBus.on('play-coffee-sound', (info) => {
-  coffeeMachine.getComponent(AudioSource).playOnce()
-})
-
 // #1
 const myVideoClip = new VideoClip(
   'https://player.vimeo.com/external/552481870.m3u8?s=c312c8533f97e808fccc92b0510b085c8122a875'
 )
 
-// #2
 const myVideoTexture = new VideoTexture(myVideoClip)
 
 // #3
 const myMaterial = new Material()
 myMaterial.albedoTexture = myVideoTexture
+myMaterial.emissiveTexture = myVideoTexture
 myMaterial.roughness = 1
 myMaterial.specularIntensity = 0
 myMaterial.metallic = 0
 
 
-// #4
 const screen = new Entity()
 screen.addComponent(new PlaneShape())
 screen.addComponent(
   new Transform({
-    position: new Vector3(15, 2, 2.5),
+    position: new Vector3(15, 2.9, 2.5),
     scale: new Vector3(6, 3, 4)
   })
 )
 screen.addComponent(myMaterial)
-screen.addComponent(
-  new OnPointerDown(() => {
-    myVideoTexture.playing = !myVideoTexture.playing
-  })
-)
 engine.addEntity(screen)
 
-// #5
-myVideoTexture.play()
+// myVideoTexture.play()
+
+const board = new Entity('board')
+engine.addEntity(board)
+board.setParent(_scene)
+board.addComponentOrReplace(new GLTFShape('models/Scoreboard.glb'))
+const transformboard = new Transform({
+  position: new Vector3(15, 0.8, 2),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(6, 4.5, 2)
+})
+board.addComponentOrReplace(transformboard)
+
+// const box1 = new Entity()
+// box1.addComponent(new BoxShape())
+// box1.addComponent(
+//   new Transform({
+//     position: new Vector3(11, 2.4, 2.2),
+//     scale: new Vector3(1, 2, 0.25)
+//   })
+// )
+// const myMaterial1 = new Material()
+// myMaterial1.albedoColor = Color4.Black()
+// box1.addComponent(myMaterial1)
+// engine.addEntity(box1)
+
+// const canvas1 = new UICanvas()
+// const image1Src = new Texture('images/happiest-mind.png')
+// const image1 = new UIImage(canvas1, image1Src)
+// image1.sourceLeft = 11
+// image1.sourceTop = 2
+// image1.sourceWidth = 5
+// image1.sourceHeight = 11
+
+
+
+const greenButton = new Entity('greenButton')
+engine.addEntity(greenButton)
+greenButton.setParent(_scene)
+greenButton.addComponentOrReplace(new GLTFShape('models/Green_Button.glb'))
+const transform32 = new Transform({
+  position: new Vector3(9, 1, 16),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1, 1, 1)
+})
+greenButton.addComponentOrReplace(transform32)
+greenButton.addComponent(
+  new OnPointerDown(
+    () => {
+    myVideoTexture.playing = !myVideoTexture.playing
+    },
+    {
+      button: ActionButton.POINTER,
+      hoverText: 'Press',
+      distance: 6,
+    }
+  )
+)
+
+sceneMessageBus.on("opened-door", (info) => {
+  log('messagebus', info)
+  door3.addComponent(openDoorPosition)
+})
 
 const projector = new Entity('projector')
 const gltfShape14 = new GLTFShape('models/projector/projector.gltf')
@@ -441,10 +413,38 @@ engine.addEntity(projector)
 projector.setParent(_scene)
 const transform34 = new Transform(
   {
-    position: new Vector3(16, 3, 16),
+    position: new Vector3(15, 5, 16),
     scale: new Vector3(0.01, 0.01, 0.01),
     rotation: new Quaternion(0, 45, -3, 1),
   }
 )
 projector.addComponentOrReplace(transform34)
-log('alive projector', projector.alive)
+
+const large_podium = new Entity('large-podium')
+const gltfShapePodiumL = new GLTFShape('models/black_large_podium/scene.gltf')
+large_podium.addComponentOrReplace(gltfShapePodiumL)
+engine.addEntity(large_podium)
+large_podium.setParent(_scene)
+const transformPodiumL = new Transform(
+  {
+    position: new Vector3(15, 0.5, 6),
+    scale: new Vector3(0.04, 0.02, 0.04)
+  }
+)
+large_podium.addComponentOrReplace(transformPodiumL)
+log('podium alive', large_podium.alive)
+
+const podium = new Entity('podium')
+const gltfShapePodium = new GLTFShape('models/podium/podium.gltf')
+podium.addComponentOrReplace(gltfShapePodium)
+engine.addEntity(podium)
+podium.setParent(_scene)
+const transformPodium = new Transform(
+  {
+    position: new Vector3(9, 0.6, 13),
+    scale: new Vector3(0.03, 0.03, 0.03),
+    rotation: new Quaternion(0, 45, 0, 1)
+  }
+)
+podium.addComponentOrReplace(transformPodium)
+log('podium alive', podium.alive)
