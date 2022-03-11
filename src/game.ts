@@ -230,7 +230,7 @@ const door3 = new Entity('door3')
 engine.addEntity(door3)
 door3.setParent(_scene)
 const transform29 = new Transform({
-  position: new Vector3(0, -1.3, 29.6),
+  position: new Vector3(0.2, -1, 29.6),
   rotation: new Quaternion(-1.470097466002118e-15, 0.7071068286895752, -8.429369557916289e-8, 0.7071067690849304),
   scale: new Vector3(2.15,1.8,2)
 })
