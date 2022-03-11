@@ -1,6 +1,8 @@
 import utils from '../node_modules/decentraland-ecs-utils/index'
 import { Books } from './books'
-
+import { createChannel } from '../node_modules/decentraland-builder-scripts/channel'
+import { createInventory } from '../node_modules/decentraland-builder-scripts/inventory'
+import Script1 from "../invisible-wall/src/item"
  
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
@@ -60,20 +62,20 @@ const transform5 = new Transform({
 })
 entity4.addComponentOrReplace(transform5)
 
-const tableWithChairs = new Entity('tableWithChairs')
-engine.addEntity(tableWithChairs)
-tableWithChairs.setParent(_scene)
-const transform12 = new Transform({
-  position: new Vector3(25.5, 0, 25),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1, 1, 1)
-})
-tableWithChairs.addComponentOrReplace(transform12)
-const gltfShape7 = new GLTFShape("models/Table_with_Chairs.glb")
-gltfShape7.withCollisions = true
-gltfShape7.isPointerBlocker = true
-gltfShape7.visible = true
-tableWithChairs.addComponentOrReplace(gltfShape7)
+// const tableWithChairs = new Entity('tableWithChairs')
+// engine.addEntity(tableWithChairs)
+// tableWithChairs.setParent(_scene)
+// const transform12 = new Transform({
+//   position: new Vector3(25.5, 0, 25),
+//   rotation: new Quaternion(0, 0, 0, 1),
+//   scale: new Vector3(1, 1, 1)
+// })
+// tableWithChairs.addComponentOrReplace(transform12)
+// const gltfShape7 = new GLTFShape("models/Table_with_Chairs.glb")
+// gltfShape7.withCollisions = true
+// gltfShape7.isPointerBlocker = true
+// gltfShape7.visible = true
+// tableWithChairs.addComponentOrReplace(gltfShape7)
 
 const table = new Entity('table')
 engine.addEntity(table)
@@ -432,7 +434,25 @@ const transformPodiumL = new Transform(
   }
 )
 large_podium.addComponentOrReplace(transformPodiumL)
-log('podium alive', large_podium.alive)
+
+const invisibleWall1 = new Entity('invisibleWall1')
+engine.addEntity(invisibleWall1)
+invisibleWall1.setParent(_scene)
+const transform31 = new Transform({
+  position: new Vector3(15, 0.5, 6),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1, 1, 1)
+})
+invisibleWall1.addComponentOrReplace(transform31)
+
+const channelId1 = Math.random().toString(16).slice(2)
+const channelBus1 = new MessageBus()
+const inventory1 = createInventory(UICanvas, UIContainerStack, UIImage)
+const options1 = { inventory1 }
+
+const script2 = new Script1()
+script2.init()
+script2.spawn(invisibleWall1, {"enabled":true}, createChannel(channelId1, invisibleWall1, channelBus1))
 
 const podium = new Entity('podium')
 const gltfShapePodium = new GLTFShape('models/podium/podium.gltf')
@@ -447,4 +467,295 @@ const transformPodium = new Transform(
   }
 )
 podium.addComponentOrReplace(transformPodium)
-log('podium alive', podium.alive)
+
+const invisibleWall = new Entity('invisibleWall')
+engine.addEntity(invisibleWall)
+invisibleWall.setParent(_scene)
+const transform6 = new Transform({
+  position: new Vector3(9, 0.6, 13),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1, 1, 1)
+})
+invisibleWall.addComponentOrReplace(transform6)
+
+const channelId = Math.random().toString(16).slice(2)
+const channelBus = new MessageBus()
+const inventory = createInventory(UICanvas, UIContainerStack, UIImage)
+const options = { inventory }
+
+const script1 = new Script1()
+script1.init()
+script1.spawn(invisibleWall, {"enabled":true}, createChannel(channelId, invisibleWall, channelBus))
+
+const whiteChair = new Entity('whitechair')
+engine.addEntity(whiteChair)
+whiteChair.setParent(_scene)
+const transformchair = new Transform({
+  position: new Vector3(5, 0, 18),
+  rotation: Quaternion.Euler(0, 180, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair.addComponentOrReplace(transformchair)
+const gltfShapeChair = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair.withCollisions = false
+gltfShapeChair.isPointerBlocker = true
+gltfShapeChair.visible = true
+whiteChair.addComponentOrReplace(gltfShapeChair)
+
+
+const whiteChair1 = new Entity('whitechair1')
+engine.addEntity(whiteChair1)
+whiteChair1.setParent(_scene)
+const transformchair1 = new Transform({
+  position: new Vector3(6.3, 0, 19),
+  rotation: Quaternion.Euler(0, 180, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair1.addComponentOrReplace(transformchair1)
+const gltfShapeChair1 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair1.withCollisions = true
+gltfShapeChair1.isPointerBlocker = true
+gltfShapeChair1.visible = true
+whiteChair1.addComponentOrReplace(gltfShapeChair1)
+
+const whiteChair2 = new Entity('whitechair2')
+engine.addEntity(whiteChair2)
+whiteChair2.setParent(_scene)
+const transformchair2 = new Transform({
+  position: new Vector3(7.6, 0, 20),
+  rotation: Quaternion.Euler(0, 180, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair2.addComponentOrReplace(transformchair2)
+const gltfShapeChair2 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair2.withCollisions = true
+gltfShapeChair2.isPointerBlocker = true
+gltfShapeChair2.visible = true
+whiteChair2.addComponentOrReplace(gltfShapeChair2)
+
+const whiteChair3 = new Entity('whitechair3')
+engine.addEntity(whiteChair3)
+whiteChair3.setParent(_scene)
+const transformchair3 = new Transform({
+  position: new Vector3(12, 0, 20.5),
+  rotation: Quaternion.Euler(0, 210, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair3.addComponentOrReplace(transformchair3)
+const gltfShapeChair3 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair3.withCollisions = true
+gltfShapeChair3.isPointerBlocker = true
+gltfShapeChair3.visible = true
+whiteChair3.addComponentOrReplace(gltfShapeChair3)
+
+const whiteChair4 = new Entity('whitechair4')
+engine.addEntity(whiteChair4)
+whiteChair4.setParent(_scene)
+const transformchair4 = new Transform({
+  position: new Vector3(14, 0, 20.5),
+  rotation: Quaternion.Euler(0, 210, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair4.addComponentOrReplace(transformchair4)
+const gltfShapeChair4 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair4.withCollisions = true
+gltfShapeChair4.isPointerBlocker = true
+gltfShapeChair4.visible = true
+whiteChair4.addComponentOrReplace(gltfShapeChair4)
+
+const whiteChair5 = new Entity('whitechair5')
+engine.addEntity(whiteChair5)
+whiteChair5.setParent(_scene)
+const transformchair5 = new Transform({
+  position: new Vector3(16, 0, 20.5),
+  rotation: Quaternion.Euler(0, 210, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair5.addComponentOrReplace(transformchair5)
+const gltfShapeChair5 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair5.withCollisions = true
+gltfShapeChair5.isPointerBlocker = true
+gltfShapeChair5.visible = true
+whiteChair5.addComponentOrReplace(gltfShapeChair5)
+
+const whiteChair6 = new Entity('whitechair6')
+engine.addEntity(whiteChair6)
+whiteChair6.setParent(_scene)
+const transformchair6 = new Transform({
+  position: new Vector3(20.4, 0, 20.5),
+  rotation: Quaternion.Euler(0, 240, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair6.addComponentOrReplace(transformchair6)
+const gltfShapeChair6 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair6.withCollisions = true
+gltfShapeChair6.isPointerBlocker = true
+gltfShapeChair6.visible = true
+whiteChair6.addComponentOrReplace(gltfShapeChair6)
+
+const whiteChair7 = new Entity('whitechair7')
+engine.addEntity(whiteChair7)
+whiteChair7.setParent(_scene)
+const transformchair7 = new Transform({
+  position: new Vector3(22, 0, 19.5),
+  rotation: Quaternion.Euler(0, 240, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair7.addComponentOrReplace(transformchair7)
+const gltfShapeChair7 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair7.withCollisions = true
+gltfShapeChair7.isPointerBlocker = true
+gltfShapeChair7.visible = true
+whiteChair7.addComponentOrReplace(gltfShapeChair7)
+
+const whiteChair8 = new Entity('whitechair8')
+engine.addEntity(whiteChair8)
+whiteChair8.setParent(_scene)
+const transformchair8 = new Transform({
+  position: new Vector3(23.6, 0, 18.5),
+  rotation: Quaternion.Euler(0, 240, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair8.addComponentOrReplace(transformchair8)
+const gltfShapeChair8 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair8.withCollisions = true
+gltfShapeChair8.isPointerBlocker = true
+gltfShapeChair8.visible = true
+whiteChair8.addComponentOrReplace(gltfShapeChair8)
+
+const whiteChair9 = new Entity('whitechair9')
+engine.addEntity(whiteChair9)
+whiteChair9.setParent(_scene)
+const transformchair9 = new Transform({
+  position: new Vector3(25.05, 0, 20.5),
+  rotation: Quaternion.Euler(0, 240, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair9.addComponentOrReplace(transformchair9)
+const gltfShapeChair9 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair9.withCollisions = true
+gltfShapeChair9.isPointerBlocker = true
+gltfShapeChair9.visible = true
+whiteChair9.addComponentOrReplace(gltfShapeChair9)
+
+const whiteChair10 = new Entity('whitechair10')
+engine.addEntity(whiteChair10)
+whiteChair10.setParent(_scene)
+const transformchair10 = new Transform({
+  position: new Vector3(23.25, 0, 21.65),
+  rotation: Quaternion.Euler(0, 240, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair10.addComponentOrReplace(transformchair10)
+const gltfShapeChair10 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair10.withCollisions = true
+gltfShapeChair10.isPointerBlocker = true
+gltfShapeChair10.visible = true
+whiteChair10.addComponentOrReplace(gltfShapeChair10)
+
+const whiteChair11 = new Entity('whitechair11')
+engine.addEntity(whiteChair11)
+whiteChair11.setParent(_scene)
+const transformchair11 = new Transform({
+  position: new Vector3(21.5, 0, 22.6),
+  rotation: Quaternion.Euler(0, 240, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair11.addComponentOrReplace(transformchair11)
+const gltfShapeChair11 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair11.withCollisions = true
+gltfShapeChair11.isPointerBlocker = true
+gltfShapeChair11.visible = true
+whiteChair11.addComponentOrReplace(gltfShapeChair11)
+
+
+const whiteChair12 = new Entity('whitechair12')
+engine.addEntity(whiteChair12)
+whiteChair12.setParent(_scene)
+const transformchair12 = new Transform({
+  position: new Vector3(12, 0, 22.5),
+  rotation: Quaternion.Euler(0, 210, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair12.addComponentOrReplace(transformchair12)
+const gltfShapeChair12 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair12.withCollisions = true
+gltfShapeChair12.isPointerBlocker = true
+gltfShapeChair12.visible = true
+whiteChair12.addComponentOrReplace(gltfShapeChair12)
+
+const whiteChair13 = new Entity('whitechair13')
+engine.addEntity(whiteChair13)
+whiteChair13.setParent(_scene)
+const transformchair13 = new Transform({
+  position: new Vector3(14, 0, 22.5),
+  rotation: Quaternion.Euler(0, 210, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair13.addComponentOrReplace(transformchair13)
+const gltfShapeChair13 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair13.withCollisions = true
+gltfShapeChair13.isPointerBlocker = true
+gltfShapeChair13.visible = true
+whiteChair13.addComponentOrReplace(gltfShapeChair13)
+
+const whiteChair14 = new Entity('whitechair14')
+engine.addEntity(whiteChair14)
+whiteChair14.setParent(_scene)
+const transformchair14 = new Transform({
+  position: new Vector3(16, 0, 22.5),
+  rotation: Quaternion.Euler(0, 210, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair14.addComponentOrReplace(transformchair14)
+const gltfShapeChair14 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair14.withCollisions = true
+gltfShapeChair14.isPointerBlocker = true
+gltfShapeChair14.visible = true
+whiteChair14.addComponentOrReplace(gltfShapeChair14)
+
+const whiteChair15 = new Entity('whitechair15')
+engine.addEntity(whiteChair15)
+whiteChair15.setParent(_scene)
+const transformchair15 = new Transform({
+  position: new Vector3(3.7, 0, 20),
+  rotation: Quaternion.Euler(0, 180, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair15.addComponentOrReplace(transformchair15)
+const gltfShapeChair15 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair15.withCollisions = true
+gltfShapeChair15.isPointerBlocker = true
+gltfShapeChair15.visible = true
+whiteChair15.addComponentOrReplace(gltfShapeChair15)
+
+
+const whiteChair16 = new Entity('whitechair16')
+engine.addEntity(whiteChair16)
+whiteChair16.setParent(_scene)
+const transformchair16 = new Transform({
+  position: new Vector3(5.2, 0, 21),
+  rotation: Quaternion.Euler(0, 180, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair16.addComponentOrReplace(transformchair16)
+const gltfShapeChair16 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair16.withCollisions = true
+gltfShapeChair16.isPointerBlocker = true
+gltfShapeChair16.visible = true
+whiteChair16.addComponentOrReplace(gltfShapeChair16)
+
+const whiteChair17 = new Entity('whitechair17')
+engine.addEntity(whiteChair17)
+whiteChair17.setParent(_scene)
+const transformchair17 = new Transform({
+  position: new Vector3(6.7, 0, 22),
+  rotation: Quaternion.Euler(0, 180, 0),
+  scale: new Vector3(0.0013, 0.0013, 0.0013)
+})
+whiteChair17.addComponentOrReplace(transformchair17)
+const gltfShapeChair17 = new GLTFShape("models/rocky_arm_chair_white_-_100529/scene.gltf")
+gltfShapeChair17.withCollisions = true
+gltfShapeChair17.isPointerBlocker = true
+gltfShapeChair17.visible = true
+whiteChair17.addComponentOrReplace(gltfShapeChair17)
