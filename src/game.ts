@@ -79,7 +79,7 @@ const table = new Entity('table')
 engine.addEntity(table)
 table.setParent(_scene)
 const transform15 = new Transform({
-  position: new Vector3(9, 0.0, 16),
+  position: new Vector3(6, 0.0, 13),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(1, 1, 1)
 })
@@ -161,7 +161,7 @@ table.addComponentOrReplace(gltfShape9)
 // chairHighBack6.addComponentOrReplace(transform21)
 
 const transform22 = new Transform({
-  position: new Vector3(9, 1, 15),
+  position: new Vector3(6, 1, 12),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(0.6, 0.6, 0.6)
 })
@@ -383,7 +383,7 @@ engine.addEntity(greenButton)
 greenButton.setParent(_scene)
 greenButton.addComponentOrReplace(new GLTFShape('models/Green_Button.glb'))
 const transform32 = new Transform({
-  position: new Vector3(9, 1, 16),
+  position: new Vector3(6, 1, 14),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(1, 1, 1)
 })
