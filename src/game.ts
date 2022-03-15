@@ -165,59 +165,120 @@ gltfShape11.isPointerBlocker = true
 gltfShape11.visible = true
 // books.addComponentOrReplace(gltfShape11)
 
-const concreteWall = new Entity('concreteWall')
-engine.addEntity(concreteWall)
-concreteWall.setParent(_scene)
-const transform23 = new Transform({
-  position: new Vector3(32, 0, 0.5),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(15.5, 1.5, 1)
-})
-concreteWall.addComponentOrReplace(transform23)
+const wall1 = new Entity()
+wall1.addComponent(new BoxShape())
+wall1.addComponent(
+  new Transform({
+    position: new Vector3(16.3, 0, 0.5),
+    scale: new Vector3(30.8, 12, 0.25)
+  })
+)
+const myMaterialWall = new Material()
+myMaterialWall.albedoColor = Color3.FromHexString('#ffffff')
+wall1.addComponent(myMaterialWall)
+engine.addEntity(wall1)
+
+const wall2 = new Entity()
+wall2.addComponent(new BoxShape())
+wall2.addComponent(
+  new Transform({
+    position: new Vector3(31.5, 0, 16),
+    rotation: Quaternion.Euler(0, 90, 0),
+    scale: new Vector3(31.2, 12, 0.25)
+  })
+)
+wall2.addComponent(myMaterialWall)
+engine.addEntity(wall2)
+
+const wall3 = new Entity()
+wall3.addComponent(new BoxShape())
+wall3.addComponent(
+  new Transform({
+    position: new Vector3(16, 0, 31.7),
+    rotation: Quaternion.Euler(0, 0, 0),
+    scale: new Vector3(31.2, 12, 0.25)
+  })
+)
+wall3.addComponent(myMaterialWall)
+engine.addEntity(wall3)
+
+const wall4 = new Entity()
+wall4.addComponent(new BoxShape())
+wall4.addComponent(
+  new Transform({
+    position: new Vector3(0.85, 0, 15),
+    rotation: Quaternion.Euler(0, 90, 0),
+    scale: new Vector3(29.5, 12, 0.25)
+  })
+)
+wall4.addComponent(myMaterialWall)
+engine.addEntity(wall4)
+
+const wall5 = new Entity()
+wall5.addComponent(new BoxShape())
+wall5.addComponent(
+  new Transform({
+    position: new Vector3(16, 6, 16),
+    rotation: Quaternion.Euler(90, 0, 0),
+    scale: new Vector3(31.5, 32, 0.25)
+  })
+)
+wall5.addComponent(myMaterialWall)
+engine.addEntity(wall5)
+
+// const concreteWall = new Entity('concreteWall')
+// engine.addEntity(concreteWall)
+// concreteWall.setParent(_scene)
+// const transform23 = new Transform({
+//   position: new Vector3(32, 0, 0.5),
+//   rotation: new Quaternion(0, 0, 0, 1),
+//   scale: new Vector3(15.5, 1.5, 1)
+// })
+// concreteWall.addComponentOrReplace(transform23)
 const gltfShape12 = new GLTFShape("models/PlainWhiteWall.glb")
-gltfShape12.withCollisions = true
-gltfShape12.isPointerBlocker = true
-gltfShape12.visible = true
-concreteWall.addComponentOrReplace(gltfShape12)
+// gltfShape12.withCollisions = true
+// gltfShape12.isPointerBlocker = true
+// gltfShape12.visible = true
+// concreteWall.addComponentOrReplace(gltfShape12)
 
-const concreteWall2 = new Entity('concreteWall2')
-engine.addEntity(concreteWall2)
-concreteWall2.setParent(_scene)
-concreteWall2.addComponentOrReplace(gltfShape12)
-const transform24 = new Transform({
-  position: new Vector3(32, 0, 0),
-  rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
-  scale: new Vector3(16, 1.5, 1)
-})
-concreteWall2.addComponentOrReplace(transform24)
+// const concreteWall2 = new Entity('concreteWall2')
+// engine.addEntity(concreteWall2)
+// concreteWall2.setParent(_scene)
+// concreteWall2.addComponentOrReplace(gltfShape12)
+// const transform24 = new Transform({
+//   position: new Vector3(32, 0, 0),
+//   rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
+//   scale: new Vector3(16, 1.5, 1)
+// })
+// concreteWall2.addComponentOrReplace(transform24)
 
-const concreteWall3 = new Entity('concreteWall3')
-engine.addEntity(concreteWall3)
-concreteWall3.setParent(_scene)
-concreteWall3.addComponentOrReplace(gltfShape12)
-const transform25 = new Transform({
-  position: new Vector3(32, 0, 32),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(16, 1.5, 1)
-})
-concreteWall3.addComponentOrReplace(transform25)
+// const concreteWall3 = new Entity('concreteWall3')
+// engine.addEntity(concreteWall3)
+// concreteWall3.setParent(_scene)
+// concreteWall3.addComponentOrReplace(gltfShape12)
+// const transform25 = new Transform({
+//   position: new Vector3(32, 0, 32),
+//   rotation: new Quaternion(0, 0, 0, 1),
+//   scale: new Vector3(16, 1.5, 1)
+// })
+// concreteWall3.addComponentOrReplace(transform25)
 
-const concreteWall4 = new Entity('concreteWall4')
-engine.addEntity(concreteWall4)
-concreteWall4.setParent(_scene)
-concreteWall4.addComponentOrReplace(gltfShape12)
-const transform26 = new Transform({
-  position: new Vector3(1, 0, 0),
-  rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
-  scale: new Vector3(14.8, 1.5, 1)
-})
-concreteWall4.addComponentOrReplace(transform26)
+// const concreteWall4 = new Entity('concreteWall4')
+// engine.addEntity(concreteWall4)
+// concreteWall4.setParent(_scene)
+// concreteWall4.addComponentOrReplace(gltfShape12)
+// const transform26 = new Transform({
+//   position: new Vector3(1, 0, 0),
+//   rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
+//   scale: new Vector3(14.8, 1.5, 1)
+// })
+// concreteWall4.addComponentOrReplace(transform26)
 
 const door3 = new Entity('door3')
 engine.addEntity(door3)
 door3.setParent(_scene)
 const transform29 = new Transform({
-  position: new Vector3(1.2, -1, 29.6),
+  position: new Vector3(1, -1, 29.6),
   rotation: new Quaternion(-1.470097466002118e-15, 0.7071068286895752, -8.429369557916289e-8, 0.7071067690849304),
   scale: new Vector3(2.145,1.8,2)
 })
@@ -236,16 +297,16 @@ door3.addComponentOrReplace(
     )
 )
 
-const concreteWall5 = new Entity('concreteWall5')
-engine.addEntity(concreteWall5)
-concreteWall5.setParent(_scene)
-concreteWall5.addComponentOrReplace(gltfShape12)
-const transform30 = new Transform({
-  position: new Vector3(32, 5.8, 0),
-  rotation: new Quaternion(0.7071068286895752, 2.4085271740892887e-15, -8.429369557916289e-8, 0.7071068286895752),
-  scale: new Vector3(16, 8, 1)
-})
-concreteWall5.addComponentOrReplace(transform30)
+// const concreteWall5 = new Entity('concreteWall5')
+// engine.addEntity(concreteWall5)
+// concreteWall5.setParent(_scene)
+// concreteWall5.addComponentOrReplace(gltfShape12)
+// const transform30 = new Transform({
+//   position: new Vector3(32, 5.8, 0),
+//   rotation: new Quaternion(0.7071068286895752, 2.4085271740892887e-15, -8.429369557916289e-8, 0.7071068286895752),
+//   scale: new Vector3(16, 8, 1)
+// })
+// concreteWall5.addComponentOrReplace(transform30)
 
 
 // Books on the side table
