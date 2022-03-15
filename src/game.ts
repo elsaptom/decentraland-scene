@@ -17,7 +17,7 @@ const sceneMessageBus = new MessageBus()
 const entity = new Entity('entity')
 engine.addEntity(entity)
 entity.setParent(_scene)
-const gltfShape = new GLTFShape("models/floor-shape.glb")
+const gltfShape = new GLTFShape("models/light grey floor.glb")
 gltfShape.withCollisions = true
 gltfShape.isPointerBlocker = true
 gltfShape.visible = true
@@ -61,21 +61,6 @@ const transform5 = new Transform({
   scale: new Vector3(1, 1, 1)
 })
 entity4.addComponentOrReplace(transform5)
-
-// const tableWithChairs = new Entity('tableWithChairs')
-// engine.addEntity(tableWithChairs)
-// tableWithChairs.setParent(_scene)
-// const transform12 = new Transform({
-//   position: new Vector3(25.5, 0, 25),
-//   rotation: new Quaternion(0, 0, 0, 1),
-//   scale: new Vector3(1, 1, 1)
-// })
-// tableWithChairs.addComponentOrReplace(transform12)
-// const gltfShape7 = new GLTFShape("models/Table_with_Chairs.glb")
-// gltfShape7.withCollisions = true
-// gltfShape7.isPointerBlocker = true
-// gltfShape7.visible = true
-// tableWithChairs.addComponentOrReplace(gltfShape7)
 
 const table = new Entity('table')
 engine.addEntity(table)
@@ -184,9 +169,9 @@ const concreteWall = new Entity('concreteWall')
 engine.addEntity(concreteWall)
 concreteWall.setParent(_scene)
 const transform23 = new Transform({
-  position: new Vector3(32, 0, 2),
+  position: new Vector3(32, 0, 0.5),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(16, 1.5, 1)
+  scale: new Vector3(15.5, 1.5, 1)
 })
 concreteWall.addComponentOrReplace(transform23)
 const gltfShape12 = new GLTFShape("models/PlainWhiteWall.glb")
@@ -200,7 +185,7 @@ engine.addEntity(concreteWall2)
 concreteWall2.setParent(_scene)
 concreteWall2.addComponentOrReplace(gltfShape12)
 const transform24 = new Transform({
-  position: new Vector3(31.5, 0, 0),
+  position: new Vector3(32, 0, 0),
   rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
   scale: new Vector3(16, 1.5, 1)
 })
@@ -222,7 +207,7 @@ engine.addEntity(concreteWall4)
 concreteWall4.setParent(_scene)
 concreteWall4.addComponentOrReplace(gltfShape12)
 const transform26 = new Transform({
-  position: new Vector3(0.3, 0, 0),
+  position: new Vector3(1, 0, 0),
   rotation: new Quaternion(5.9398868346521535e-16, -0.7071068286895752, 8.429369557916289e-8, -0.7071068286895752),
   scale: new Vector3(14.8, 1.5, 1)
 })
@@ -232,9 +217,9 @@ const door3 = new Entity('door3')
 engine.addEntity(door3)
 door3.setParent(_scene)
 const transform29 = new Transform({
-  position: new Vector3(0.2, -1, 29.6),
+  position: new Vector3(1.2, -1, 29.6),
   rotation: new Quaternion(-1.470097466002118e-15, 0.7071068286895752, -8.429369557916289e-8, 0.7071067690849304),
-  scale: new Vector3(2.15,1.8,2)
+  scale: new Vector3(2.145,1.8,2)
 })
 door3.addComponentOrReplace(transform29)
 const gltfShape13 = new GLTFShape("models/Door 10.glb")
@@ -344,7 +329,7 @@ screen.addComponent(
 screen.addComponent(myMaterial)
 engine.addEntity(screen)
 
-// myVideoTexture.play()
+myVideoTexture.play()
 
 const board = new Entity('board')
 engine.addEntity(board)
@@ -394,6 +379,8 @@ greenButton.addComponent(
   new OnPointerDown(
     () => {
     myVideoTexture.playing = !myVideoTexture.playing
+    log(myVideoTexture.playing, 'playing')
+    // sceneMessageBus.emit('video', {myVideoTexture})
     },
     {
       button: ActionButton.POINTER,
@@ -406,6 +393,10 @@ greenButton.addComponent(
 sceneMessageBus.on("opened-door", (info) => {
   log('messagebus', info)
   door3.addComponent(openDoorPosition)
+})
+sceneMessageBus.on('video', (info) => {
+  log('vide msg bus', info)
+  myVideoTexture.playing = info.playing
 })
 
 const projector = new Entity('projector')
@@ -422,18 +413,18 @@ const transform34 = new Transform(
 )
 projector.addComponentOrReplace(transform34)
 
-const large_podium = new Entity('large-podium')
-const gltfShapePodiumL = new GLTFShape('models/black_large_podium/scene.gltf')
-large_podium.addComponentOrReplace(gltfShapePodiumL)
-engine.addEntity(large_podium)
-large_podium.setParent(_scene)
-const transformPodiumL = new Transform(
-  {
-    position: new Vector3(15, 0.5, 6),
-    scale: new Vector3(0.04, 0.02, 0.04)
-  }
-)
-large_podium.addComponentOrReplace(transformPodiumL)
+// const large_podium = new Entity('large-podium')
+// const gltfShapePodiumL = new GLTFShape('models/black_large_podium/scene.gltf')
+// large_podium.addComponentOrReplace(gltfShapePodiumL)
+// engine.addEntity(large_podium)
+// large_podium.setParent(_scene)
+// const transformPodiumL = new Transform(
+//   {
+//     position: new Vector3(15, 0.5, 6),
+//     scale: new Vector3(0.04, 0.02, 0.04)
+//   }
+// )
+// large_podium.addComponentOrReplace(transformPodiumL)
 
 const invisibleWall1 = new Entity('invisibleWall1')
 engine.addEntity(invisibleWall1)
@@ -461,8 +452,8 @@ engine.addEntity(podium)
 podium.setParent(_scene)
 const transformPodium = new Transform(
   {
-    position: new Vector3(9, 0.6, 13),
-    scale: new Vector3(0.03, 0.03, 0.03),
+    position: new Vector3(9, 0, 13),
+    scale: new Vector3(0.02, 0.02, 0.02),
     rotation: new Quaternion(0, 45, 0, 1)
   }
 )
@@ -759,3 +750,16 @@ gltfShapeChair17.withCollisions = true
 gltfShapeChair17.isPointerBlocker = true
 gltfShapeChair17.visible = true
 whiteChair17.addComponentOrReplace(gltfShapeChair17)
+
+// const front_table = new Entity()
+// front_table.addComponent(new BoxShape())
+// front_table.addComponent(
+//   new Transform({
+//     position: new Vector3(8, 0, 16),
+//     scale: new Vector3(3, 0.5, 2)
+//   })
+// )
+// const myMaterialTable = new Material()
+// myMaterialTable.albedoColor = Color3.FromHexString('#Fbf8f3')
+// front_table.addComponent(myMaterialTable)
+// engine.addEntity(front_table)
